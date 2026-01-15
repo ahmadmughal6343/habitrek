@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #ffffff;
+  width: 100%;
+  max-width: min(90vw, 450px);
+  min-width: 280px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border-radius: clamp(12px, 2vw, 16px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+  color: #64748b;
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+
+.formGroup {
+  margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.label {
+  display: block;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  font-family: "Roboto", sans-serif;
+}
+
+.input {
+  width: 100%;
+  padding: clamp(0.625rem, 2vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+  border: 1.5px solid #e2e8f0;
+  border-radius: clamp(6px, 1.5vw, 8px);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  min-height: 44px; /* Better touch target for mobile */
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.button {
+  width: 100%;
+  background-color: #4f46e5;
+  color: white;
+  padding: clamp(0.75rem, 2vw, 0.875rem);
+  border-radius: clamp(6px, 1.5vw, 8px);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: clamp(0.75rem, 2vw, 1rem);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  min-height: 44px; /* Better touch target for mobile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #4338ca;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+/* Media query for very small devices */
+@media (max-width: 320px) {
+  .card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+  }
+}
+
+/* Media query for tablet and larger */
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 2rem;
+  }
+
+  .card {
+    padding: 2.5rem;
+    border-radius: 20px;
+  }
+}
+
+/* Media query for landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .wrapper {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .card {
+    margin: 1rem 0;
+  }
+
+  .formGroup {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.footerText {
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  text-align: center;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: #64748b;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+
+.link {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+.error {
+  background-color: rgb(245, 210, 210);
+  color: red;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 1.25rem);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  animation: toast 0.5s ease-out;
+  border-radius: clamp(6px, 1.5vw, 8px);
+  margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
+  box-sizing: border-box;
+  width: 100%;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+}
+
+.error span {
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.error svg {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+@keyframes toast {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding: max(0px)) {
+  .wrapper {
+    padding-left: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-left));
+    padding-right: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-right));
+    padding-top: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-top));
+    padding-bottom: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-bottom));
+  }
+}
+
+/* Improve print styles */
+@media print {
+  .wrapper {
+    padding: 0;
+    min-height: auto;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .button {
+    background-color: #1e293b !important;
+    color: white !important;
+  }
+}
