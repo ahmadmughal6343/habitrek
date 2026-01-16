@@ -13,10 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    children: [{ index: true, element: <Home /> }],
     loader: protectedLoader, // Protects home page - requires authentication
+    children: [{ index: true, element: <Home /> }],
   },
-  { path: "started", element: <GetStarted /> }, // Public landing page
+  { path: "started", element: <GetStarted />, loader:authLoader }, // Public landing page
   {
     path: "auth",
     element: <AuthLayout />,
@@ -26,13 +26,13 @@ const router = createBrowserRouter([
         path: "signin",
         element: <SignIn />,
         action: handleSignInAction,
-        loader: authLoader
+        loader: authLoader,
       },
       {
         path: "signup",
         element: <SignUp />,
         action: handleSignUpAction,
-        loader: authLoader
+        loader: authLoader,
       },
     ],
   },

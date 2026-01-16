@@ -1,11 +1,30 @@
-/* Loader.module.css */
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
 .spinner {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid #3498db; /* Blue */
+  /* Size and thickness */
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3; /* Light grey background ring */
+  border-top: 4px solid #3498db; /* Blue spinning part */
   border-radius: 50%;
+  
+  /* Animation */
   animation: spin 1s linear infinite;
+}
+
+/* Responsiveness: Scales down for small screens */
+@media (max-width: 480px) {
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
 }
 
 @keyframes spin {

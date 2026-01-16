@@ -92,12 +92,12 @@ const SignUp = () => {
                   {show ? (
                     <FaEye
                       onClick={() => setShow(!show)}
-                      className="absolute right-4"
+                      className="absolute right-4 cursor-pointer"
                     />
                   ) : (
                     <FaEyeSlash
                       onClick={() => setShow(!show)}
-                      className="absolute right-4"
+                      className="absolute right-4 cursor-pointer"
                     />
                   )}
                 </div>
