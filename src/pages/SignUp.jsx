@@ -1,13 +1,14 @@
-import { Form, Link, useActionData } from "react-router-dom";
+import { Form, Link, useActionData, useNavigation } from "react-router-dom";
 import styles from "../assets/styles/Auth.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { Loader2, X } from "lucide-react";
 
 const SignUp = () => {
   const data = useActionData();
   const [show, setShow] = useState(false);
   const [showError, setShowError] = useState(true);
+  const loader = useNavigation();
   const {
     wrapper,
     card,
@@ -85,6 +86,7 @@ const SignUp = () => {
                 <div className="flex items-center relative">
                   <input
                     type={show ? "text" : "password"}
+                    minLength={8}
                     id="password"
                     name="password"
                     className={input}
@@ -105,10 +107,15 @@ const SignUp = () => {
 
               <button
                 type="submit"
+                disabled={loader.state !== "idle"}
                 className={button}
                 onClick={() => setShowError(true)}
               >
-                Create Account
+                {loader.state !== "idle" ? (
+                  <Loader2 className={styles.rotate} />
+                ) : (
+                  "Create Account"
+                )}
               </button>
             </Form>
 

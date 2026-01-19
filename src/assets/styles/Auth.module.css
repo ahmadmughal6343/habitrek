@@ -19,7 +19,8 @@
   min-width: 280px;
   padding: clamp(1.25rem, 3vw, 2.5rem);
   border-radius: clamp(12px, 2vw, 16px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border: 1px solid #e2e8f0;
   box-sizing: border-box;
@@ -83,7 +84,9 @@
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
   margin-top: clamp(0.75rem, 2vw, 1rem);
   font-size: clamp(0.875rem, 2.5vw, 1rem);
   min-height: 44px; /* Better touch target for mobile */
@@ -235,5 +238,17 @@
   .button {
     background-color: #1e293b !important;
     color: white !important;
+  }
+}
+
+.rotate {
+  animation: rotate 0.4s ease-in-out 0s infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

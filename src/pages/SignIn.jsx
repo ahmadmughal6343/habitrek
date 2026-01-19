@@ -1,7 +1,7 @@
 import styles from "../assets/styles/Auth.module.css";
-import { Form, Link, useActionData } from "react-router-dom";
+import { Form, Link, useActionData, useNavigation } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { X } from "lucide-react";
+import { Loader2, X } from "lucide-react";
 import useShow from "../hooks/useShow";
 import { useEffect, useState } from "react";
 
@@ -9,6 +9,7 @@ const SignIn = () => {
   const data = useActionData();
   const { show, setShow } = useShow();
   const [showError, setShowError] = useState(false);
+  const loader = useNavigation();
   const {
     wrapper,
     card,
@@ -22,6 +23,7 @@ const SignIn = () => {
     link,
     error,
   } = styles;
+
   useEffect(() => {
     document.title = "Habitrek | Sign in";
   }, []);
@@ -86,10 +88,15 @@ const SignIn = () => {
 
               <button
                 type="submit"
+                disabled={loader.state !== "idle"}
                 onClick={() => setShowError(true)}
                 className={button}
               >
-                Sign In
+                {loader.state !== "idle" ? (
+                  <Loader2 className={styles.rotate} />
+                ) : (
+                  "Sign In"
+                )}
               </button>
             </Form>
 

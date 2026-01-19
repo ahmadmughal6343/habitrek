@@ -28,7 +28,7 @@ const handleSignUpAction = async ({ request }) => {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
-      password
+      password,
     );
     const user = userCredential.user;
 
@@ -37,9 +37,6 @@ const handleSignUpAction = async ({ request }) => {
     await updateProfile(user, {
       displayName: `${firstName} ${lastName}`,
     });
-
-    console.log("Account created for:", user.email);
-
     // 4. Redirect to home/dashboard after success
     setAuth(true);
     return redirect("/");

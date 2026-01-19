@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { LoadingContext } from "../contexts";
+import { useCallback, useMemo, useState } from "react";
+import { LoadingContext } from "./contexts";
 
 const LoadingProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,7 @@ const LoadingProvider = ({ children }) => {
       showLoading,
       hideLoading,
     }),
-    [isLoading, showLoading, hideLoading]
+    [isLoading, showLoading, hideLoading],
   );
   return (
     <LoadingContext.Provider value={value}>{children}</LoadingContext.Provider>

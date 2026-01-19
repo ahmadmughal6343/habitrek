@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     loader: protectedLoader, // Protects home page - requires authentication
     children: [{ index: true, element: <Home /> }],
   },
-  { path: "started", element: <GetStarted />, loader:authLoader }, // Public landing page
+  { path: "started", element: <GetStarted />, loader: authLoader }, // Public landing page
   {
     path: "auth",
     element: <AuthLayout />,
