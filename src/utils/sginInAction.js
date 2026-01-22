@@ -15,10 +15,22 @@ const handleSignInAction = async ({ request }) => {
 
   try {
     // 2. Firebase Sign In
-    await signInWithEmailAndPassword(auth, email, password);
-
-    // 3. Return redirect object
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+    const user = userCredential.user;
+    //Store user and isAuth in LocalStorage
     setAuth(true);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        email: user.email,
+        name: user.displayName || "User",
+      }),
+    );
+    // 3. Return redirect object
     throw redirect("/");
   } catch (error) {
     // Check if it's a redirect error first

@@ -1,0 +1,78 @@
+/* SettingModal.module.css */
+.modalContainer {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Theme Options */
+.themeOption {
+  border: 2px solid;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+/* Active theme option styles */
+.active {
+  border-color: #3b82f6 !important;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+/* Dark mode specific for non-active states */
+[data-theme="dark"] .themeOption:not(.active) {
+  border-color: #374151;
+  color: #d1d5db;
+}
+
+[data-theme="dark"] .themeOption:not(.active):hover {
+  border-color: #4b5563;
+  background-color: rgba(75, 85, 99, 0.2);
+}
+
+/* Light mode specific for non-active states */
+[data-theme="light"] .themeOption:not(.active) {
+  border-color: #e5e7eb;
+  color: #4b5563;
+}
+
+[data-theme="light"] .themeOption:not(.active):hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+}
+
+/* Close button hover effect */
+.closeButton {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Custom breakpoint for extra small devices */
+@media (min-width: 475px) {
+  .xs\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xs\:flex-row {
+    flex-direction: row;
+  }
+
+  .xs\:order-1 {
+    order: 1;
+  }
+
+  .xs\:order-2 {
+    order: 2;
+  }
+}

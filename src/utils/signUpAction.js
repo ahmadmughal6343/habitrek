@@ -39,6 +39,13 @@ const handleSignUpAction = async ({ request }) => {
     });
     // 4. Redirect to home/dashboard after success
     setAuth(true);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        email: email,
+        name: firstName + " " + lastName,
+      }),
+    );
     return redirect("/");
   } catch (error) {
     // 5. Handle Errors (e.g., email already exists)

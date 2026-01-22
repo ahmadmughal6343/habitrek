@@ -1,0 +1,189 @@
+/* MainNavbar.module.css */
+.navContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
+  gap: 1rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 40;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  font-family: "Asap", sans-serif;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-weight: 900;
+  letter-spacing: clamp(1px, 0.5vw, 3px);
+  background: linear-gradient(to bottom, #103961 50%, #383737);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.profile {
+  box-sizing: content-box;
+  width: clamp(32px, 8vw, 40px);
+  height: clamp(32px, 8vw, 40px);
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.profile:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.day {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  line-height: 1.2;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.clock {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  line-height: 1.2;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  transition: all 0.3s ease;
+}
+
+.bell {
+  box-sizing: content-box;
+  width: clamp(18px, 5vw, 22px);
+  height: clamp(18px, 5vw, 22px);
+  padding: clamp(8px, 2vw, 10px);
+  border-radius: 100%;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bell:hover {
+  transform: scale(1.1) rotate(12deg);
+}
+
+.timeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .navContainer {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navContainer {
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+  }
+
+  .timeContainer {
+    order: 3;
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .navContainer {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: clamp(1.1rem, 3.3vw, 1.25rem);
+  }
+
+  .profile {
+    width: clamp(28px, 7vw, 32px);
+    height: clamp(28px, 7vw, 32px);
+  }
+
+  .bell {
+    width: clamp(16px, 4vw, 18px);
+    height: clamp(16px, 4vw, 18px);
+    padding: clamp(6px, 1.5vw, 8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .navContainer {
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .day {
+    font-size: 0.7rem;
+  }
+
+  .clock {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+
+  .timeContainer {
+    padding: 0.375rem;
+    gap: 0.125rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .navContainer {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .day,
+  .clock {
+    font-size: 0.65rem;
+  }
+}

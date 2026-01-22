@@ -1,0 +1,175 @@
+/* Base asidebar styles */
+.asidebar {
+  position: relative;
+  z-index: 0;
+  min-width: 80px;
+}
+
+/* Navigation link custom styles */
+.navLink {
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.navLink.active::after {
+  transform: translateX(0);
+}
+
+/* Tooltip for collapsed state */
+.tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 12px;
+  padding: 6px 12px;
+  background-color: #1f2937;
+  color: white;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent #1f2937 transparent transparent;
+}
+
+.navLink:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  margin-left: 8px;
+}
+
+/* Focus states for accessibility */
+.navLink:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for navigation */
+nav ul {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+nav ul::-webkit-scrollbar {
+  width: 4px;
+}
+
+nav ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+nav ul::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+nav ul::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Desktop large screen adjustments */
+@media (min-width: 1025px) {
+  .asidebar {
+    width: 250px !important;
+  }
+
+  .asidebar.collapsed {
+    width: 80px !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navLink {
+    border: 1px solid currentColor;
+  }
+
+  .navLink.active {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .asidebar,
+  .navLink,
+  .tooltip {
+    transition: none !important;
+  }
+
+  .navLink::after {
+    transition: none;
+  }
+}
+
+.settingBtn {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensures it fills sidebar width */
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+  gap: 12px;
+}
+
+.settingBtn:active {
+  transform: scale(0.98); /* Feedback when clicked */
+}
+
+.settingBtn:focus-visible {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+.settingText {
+  font-weight: 500;
+  white-space: nowrap; /* Prevents text wrapping on small screens */
+  font-size: 1rem;
+}
+
+/* Ensure Icon has a consistent size */
+.settingIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}

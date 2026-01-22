@@ -1,0 +1,11 @@
+/* Optional: Add any custom styles you need */
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  overflow-y: auto;
+}

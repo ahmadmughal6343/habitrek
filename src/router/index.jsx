@@ -8,11 +8,19 @@ import handleSignInAction from "../utils/sginInAction";
 import { authLoader, protectedLoader } from "../services/protectedLoader";
 import RootLayout from "../layouts/RootLayout/RootLayout";
 import AuthLayout from "../layouts/authLayout/AuthLayout";
+import SettingsModalProvider from "../contexts/SettingsModalProvider";
+import ThemeProvider from "../contexts/ThemeProvider";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <ThemeProvider>
+        <SettingsModalProvider>
+          <RootLayout />
+        </SettingsModalProvider>
+      </ThemeProvider>
+    ),
     loader: protectedLoader, // Protects home page - requires authentication
     children: [{ index: true, element: <Home /> }],
   },
