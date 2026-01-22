@@ -129,11 +129,11 @@
 
 @media (max-width: 639px) {
   .navContainer {
-    padding: 0.75rem 1rem;
+    padding: 1.15rem 1rem;
   }
 
   .logo {
-    font-size: clamp(1.1rem, 3.3vw, 1.25rem);
+    font-size: clamp(1.7rem, 3.5vw, 1.85rem);
   }
 
   .profile {
@@ -151,11 +151,11 @@
 @media (max-width: 480px) {
   .navContainer {
     gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    padding: 1rem 0.85rem ;
   }
 
   .logo {
-    font-size: 1.1rem;
+    font-size: 1.75rem;
   }
 
   .day {
@@ -175,11 +175,11 @@
 
 @media (max-width: 320px) {
   .navContainer {
-    padding: 0.5rem;
+    padding: 0.6rem 0.5rem;
   }
 
   .logo {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .day,
